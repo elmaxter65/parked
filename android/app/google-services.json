@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "774984930642",
+    "firebase_url": "https://parked-ff9ae.firebaseio.com",
+    "project_id": "parked-ff9ae",
+    "storage_bucket": "parked-ff9ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774984930642:android:7d10417b362f8ed0f4968b",
+        "android_client_info": {
+          "package_name": "com.example.parkedrenovated"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "774984930642-l21o7hjoek86l401n6kcft2cik953ju9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.parkedrenovated",
+            "certificate_hash": "23ffa7297000cddc3dc3d9e1472fc407b862e1ba"
+          }
+        },
+        {
+          "client_id": "774984930642-38ma97990ro7d7gbmfprvmuk0jn4c23m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA2BUKZvoOi8Wovtz_cjAAVldS-FaKaqA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "774984930642-38ma97990ro7d7gbmfprvmuk0jn4c23m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

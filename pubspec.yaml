@@ -19,6 +19,7 @@ dependencies:
   flutter_auth_buttons:
   country_pickers:
   tutorial_coach_mark:
+  cloud_firestore:
 
 dev_dependencies:
   flutter_test:

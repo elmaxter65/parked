@@ -38,6 +38,24 @@
       "languageVersion": "1.0"
     },
     {
+      "name": "cloud_firestore",
+      "rootUri": "file:///home/johan/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.13.4+2",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "cloud_firestore_platform_interface",
+      "rootUri": "file:///home/johan/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_platform_interface-1.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "cloud_firestore_web",
+      "rootUri": "file:///home/johan/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-0.1.1+2",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "collection",
       "rootUri": "file:///home/johan/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.14.11",
       "packageUri": "lib/",
@@ -320,7 +338,7 @@
       "languageVersion": "2.1"
     }
   ],
-  "generated": "2020-04-07T23:28:00.445946Z",
+  "generated": "2020-04-09T23:20:56.860125Z",
   "generator": "pub",
   "generatorVersion": "2.7.0"
 }

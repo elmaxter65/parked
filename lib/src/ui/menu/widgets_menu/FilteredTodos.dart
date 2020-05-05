@@ -11,7 +11,10 @@ import 'delete_todo_snack_bar.dart';
 import 'todo_item.dart';
 
 class FilteredTodos extends StatelessWidget {
-  FilteredTodos({Key key}) : super(key: key);
+
+  final String thisUser;
+
+  FilteredTodos({Key key, @required this.thisUser}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +37,7 @@ class FilteredTodos extends StatelessWidget {
               onTap: () async {
                 final removedTodo = await Navigator.of(context).push(
                   MaterialPageRoute(builder: (_) {
-                    return DetailsScreen(id: todo.id);
+                    return DetailsScreen(id: todo.id, thisUser: thisUser);
                   }),
                 );
                 if (removedTodo != null) {
@@ -68,12 +71,25 @@ class FilteredTodos extends StatelessWidget {
             itemCount: todos.length,
             itemBuilder: (context, index) {
               final todo = todos[index];
+              Color colour_indicator;
+
+              if (int.parse(todo.indicator) >= 0 &&
+                  int.parse(todo.indicator) <= 5)
+                colour_indicator = Colors.green;
+              else if (int.parse(todo.indicator) >= 6 &&
+                  int.parse(todo.indicator) <= 10)
+                colour_indicator = Colors.amberAccent;
+              else if (int.parse(todo.indicator) >= 11)
+                colour_indicator = Colors.red;
+
               lessons.add(new Lesson(
-                  title: todo.task,
-                  level: "Intermidiate",
-                  indicatorValue: 0.66,
-                  price: 30,
-                  content: todo.note));
+                  title: todo.task.toUpperCase(),
+                  level: 'Nivel: ' + todo.nivel.toUpperCase(),
+                  indicatorValue: double.parse(todo.indicator),
+                  price: 100,
+                  content: todo.note,
+                  colour_indicator: colour_indicator
+              ));
               return makeCard(lessons[index], todo);
             },
           );

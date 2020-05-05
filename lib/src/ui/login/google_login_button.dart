@@ -12,7 +12,7 @@ class GoogleLoginButton extends StatelessWidget {
             content: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Text('Loggin in...'),
+            Text('Iniciando sesión...'),
             CircularProgressIndicator(),
           ],
         )));

@@ -10,6 +10,8 @@ abstract class TodosEvent extends Equatable {
 
 class LoadTodos extends TodosEvent {}
 
+class PlaceTodos extends TodosEvent {}
+
 class AddTodo extends TodosEvent {
   final Todo todo;
 
@@ -54,6 +56,15 @@ class TodosUpdated extends TodosEvent {
   final List<Todo> todos;
 
   const TodosUpdated(this.todos);
+
+  @override
+  List<Object> get props => [todos];
+}
+
+class TodosPLaceUpdated extends TodosEvent {
+  final List<Todo> todos;
+
+  const TodosPLaceUpdated(this.todos);
 
   @override
   List<Object> get props => [todos];

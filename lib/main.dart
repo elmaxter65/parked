@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_firebase_flutter_2/src/bloc/authentication_bloc/bloc.dart';
@@ -13,6 +12,7 @@ import 'package:flutter_firebase_flutter_2/src/ui/add_notice/AddEditNotice.dart'
 import 'package:flutter_firebase_flutter_2/src/ui/login/login_screen.dart';
 import 'package:flutter_firebase_flutter_2/src/ui/splash_screen.dart';
 
+import 'mapa_prueba/maps_run.dart';
 import 'src/bloc/filtered_todos/filtered_todos.dart';
 import 'src/ui/menu/menu_form.dart';
 
@@ -32,6 +32,7 @@ class App extends StatelessWidget {
       : assert (userRepository != null),
         _userRepository = userRepository,
         super(key: key);
+  String user_current;
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -63,6 +64,7 @@ class App extends StatelessWidget {
                   return SplashScreen();
                 }
                 if (state is Authenticated) {
+                  user_current = state.displayName;
                   return MultiBlocProvider(
                     providers: [
                       BlocProvider<TabBloc>(
@@ -79,9 +81,9 @@ class App extends StatelessWidget {
                             StatsBloc(
                               todosBloc: BlocProvider.of<TodosBloc>(context),
                             ),
-                      ),
+                      )
                     ],
-                    child: HomeScreen(),
+                    child: HomeScreen(user_current),
                   );
                   //  return ListPage(title: 'Menu');
                 }
@@ -94,12 +96,27 @@ class App extends StatelessWidget {
           },
           '/addTodo': (context) {
             return AddEditScreen(
-              onSave: (task, note) {
+              onSave: (task, note, nivel, user, formattedAddress, lat, lng) {
                 BlocProvider.of<TodosBloc>(context).add(
-                  AddTodo(Todo(task, note: note)),
+                  AddTodo(Todo(task, nivel, user, formattedAddress, lat, lng,
+                      note: note)),
                 );
               },
               isEditing: false,
+              thisUser: user_current,
+            );
+          },
+          '/maps': (context) {
+            print(TodosBloc);
+            return MapsApp(
+              onSave: (task, note, nivel, user, formattedAddress, lat, lng) {
+                BlocProvider.of<TodosBloc>(context).add(
+                  AddTodo(Todo(task, nivel, user, formattedAddress, lat, lng,
+                      note: note)),
+                );
+              },
+              isEditing: false,
+              thisUser: user_current,
             );
           },
         },

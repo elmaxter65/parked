@@ -10,8 +10,15 @@ class TodoEntity extends Equatable {
   final String id;
   final String note;
   final String task;
+  final String nivel;
+  final String indicator;
+  final String user;
+  final String formattedAddress;
+  final String lat;
+  final String lng;
 
-  const TodoEntity(this.task, this.id, this.note, this.complete);
+  const TodoEntity(this.task, this.id, this.note, this.complete, this.nivel,
+      this.indicator, this.user, this.formattedAddress, this.lat, this.lng);
 
   Map<String, Object> toJson() {
     return {
@@ -19,15 +26,33 @@ class TodoEntity extends Equatable {
       "task": task,
       "note": note,
       "id": id,
+      "nivel": nivel,
+      "indicator": indicator,
+      "user": user,
+      "user": formattedAddress,
+      "user": lat,
+      "user": lng
     };
   }
 
   @override
-  List<Object> get props => [complete, id, note, task];
+  List<Object> get props =>
+      [
+        complete,
+        id,
+        note,
+        task,
+        nivel,
+        indicator,
+        user,
+        formattedAddress,
+        lat,
+        lng
+      ];
 
   @override
   String toString() {
-    return 'TodoEntity { complete: $complete, task: $task, note: $note, id: $id }';
+    return 'TodoEntity { complete: $complete, task: $task, note: $note, id: $id , nivel: $nivel , indicator: $indicator , user: $user, formattedAddress: $formattedAddress, lat: $lat, lng: $lng}';
   }
 
   static TodoEntity fromJson(Map<String, Object> json) {
@@ -36,6 +61,12 @@ class TodoEntity extends Equatable {
       json["id"] as String,
       json["note"] as String,
       json["complete"] as bool,
+        json["nivel"] as String,
+        json["indicator"] as String,
+        json["user"] as String,
+        json["formattedAddress"] as String,
+        json["lat"] as String,
+        json["lng"] as String
     );
   }
 
@@ -45,6 +76,12 @@ class TodoEntity extends Equatable {
       snap.documentID,
       snap.data['note'],
       snap.data['complete'],
+      snap.data['nivel'],
+      snap.data['indicator'],
+      snap.data['user'],
+      snap.data['formattedAddress'],
+      snap.data['lat'],
+      snap.data['lng'],
     );
   }
 
@@ -53,6 +90,12 @@ class TodoEntity extends Equatable {
       "complete": complete,
       "task": task,
       "note": note,
+      "nivel": nivel,
+      "indicator": indicator,
+      "user": user,
+      "formattedAddress": formattedAddress,
+      "lat": lat,
+      "lng": lng
     };
   }
 }

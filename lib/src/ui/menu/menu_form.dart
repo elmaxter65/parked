@@ -8,6 +8,10 @@ import 'package:flutter_firebase_flutter_2/src/modelo/app_tab.dart';
 import 'widgets_menu/FilteredTodos.dart';
 
 class HomeScreen extends StatelessWidget {
+  final String thisUser;
+
+  HomeScreen(this.thisUser);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TabBloc, AppTab>(
@@ -26,7 +30,9 @@ class HomeScreen extends StatelessWidget {
                 ),
                 IconButton(
                   icon: Icon(Icons.map, color: Colors.white),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/maps');
+                  },
                 ),
                 IconButton(
                   icon: Icon(Icons.monetization_on, color: Colors.white),
@@ -50,7 +56,7 @@ class HomeScreen extends StatelessWidget {
         final topAppBar = AppBar(
           elevation: 0.1,
           backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
-          title: Text("Menu"),
+          title: Text("Noticias"),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.exit_to_app),
@@ -63,7 +69,7 @@ class HomeScreen extends StatelessWidget {
         return Scaffold(
           //menu
           appBar: topAppBar,
-          body: FilteredTodos(),
+          body: FilteredTodos(thisUser: thisUser),
           bottomNavigationBar: makeBottom,
           backgroundColor: Color.fromRGBO(64, 75, 96, .9),
         );

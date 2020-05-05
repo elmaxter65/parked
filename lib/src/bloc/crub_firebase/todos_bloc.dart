@@ -21,6 +21,8 @@ class TodosBloc extends Bloc<TodosEvent, TodosState> {
   Stream<TodosState> mapEventToState(TodosEvent event) async* {
     if (event is LoadTodos) {
       yield* _mapLoadTodosToState();
+    } else if (event is PlaceTodos) {
+      yield* _mapLoadTodosPlaceToState();
     } else if (event is AddTodo) {
       yield* _mapAddTodoToState(event);
     } else if (event is UpdateTodo) {
@@ -41,6 +43,13 @@ class TodosBloc extends Bloc<TodosEvent, TodosState> {
     _todosSubscription = _todosRepository.todos().listen(
           (todos) => add(TodosUpdated(todos)),
         );
+  }
+
+  Stream<TodosState> _mapLoadTodosPlaceToState() async* {
+    _todosSubscription?.cancel();
+    _todosSubscription = _todosRepository.todos().listen(
+          (todos) => add(TodosUpdated(todos)),
+    );
   }
 
   Stream<TodosState> _mapAddTodoToState(AddTodo event) async* {

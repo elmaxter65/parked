@@ -53,7 +53,7 @@ class _LoginFormState extends State<LoginForm> {
             SnackBar(
               content: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [Text('Login Failure'), Icon(Icons.error)],
+                children: [Text('Inicio Fallido'), Icon(Icons.error)],
               ),
               backgroundColor: Colors.red,
             ),
@@ -66,7 +66,7 @@ class _LoginFormState extends State<LoginForm> {
             content: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text('Logging in... '),
+                Text('Iniciando sesión... '),
                 CircularProgressIndicator(),
               ],
             ),
@@ -97,7 +97,7 @@ class _LoginFormState extends State<LoginForm> {
                   autovalidate: true,
                   autocorrect: false,
                   validator: (_) {
-                    return !state.isEmailValid ? 'Invalid Email' : null;
+                    return !state.isEmailValid ? 'Invalido Email' : null;
                   },
                 ),
                 TextFormField(
@@ -108,7 +108,7 @@ class _LoginFormState extends State<LoginForm> {
                   autovalidate: true,
                   autocorrect: false,
                   validator: (_) {
-                    return !state.isPasswordValid ? 'Invalid Password' : null;
+                    return !state.isPasswordValid ? 'Invalido Password' : null;
                   },
                 ),
                 Padding(

@@ -12,7 +12,6 @@ class AddEditStartNotice extends StatelessWidget {
       providers: [
         BlocProvider<TodosBloc>(
           create: (context) {
-            print(LoadTodos());
             return TodosBloc(
               todosRepository: FirebaseTodosRepository(),
             )..add(LoadTodos());
@@ -24,9 +23,10 @@ class AddEditStartNotice extends StatelessWidget {
         routes: {
           '/': (context) {
             return AddEditScreen(
-              onSave: (task, note) {
+              onSave: (task, note, nivel, user, formattedAddress, lat, lng) {
                 BlocProvider.of<TodosBloc>(context).add(
-                  AddTodo(Todo(task, note: note)),
+                  AddTodo(Todo(task, nivel, user, formattedAddress, lat, lng,
+                      note: note)),
                 );
               },
               isEditing: false,

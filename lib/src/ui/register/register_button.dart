@@ -12,7 +12,7 @@ class RegisterButton extends StatelessWidget {
     return RaisedButton(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
       onPressed: _onPressed,
-      child: Text('Register'),
+      child: Text('Registrar'),
     );
   }
 }

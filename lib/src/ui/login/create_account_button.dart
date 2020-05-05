@@ -13,7 +13,7 @@ class CreateAccountButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton(
-      child: Text('Create an Account'),
+      child: Text('Crear usuario'),
       onPressed: () {
         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
           return RegisterScreen(

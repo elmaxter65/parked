@@ -41,7 +41,7 @@ class TodoItem extends StatelessWidget {
           child: Container(
             width: MediaQuery.of(context).size.width,
             child: Text(
-              todo.task,
+              todo.task.toUpperCase(),
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
@@ -57,7 +57,8 @@ class TodoItem extends StatelessWidget {
                         child: LinearProgressIndicator(
                             backgroundColor: Color.fromRGBO(209, 224, 224, 0.2),
                             value: lesson.indicatorValue,
-                            valueColor: AlwaysStoppedAnimation(Colors.green)),
+                            valueColor: AlwaysStoppedAnimation(
+                                lesson.colour_indicator)),
                       )),
                   Expanded(
                     flex: 4,

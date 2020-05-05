@@ -55,7 +55,7 @@ class _RegisterFormState extends State<RegisterForm> {
             content: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text('Registering'),
+                Text('Registrarse'),
                 CircularProgressIndicator()
               ],
             ),
@@ -74,7 +74,7 @@ class _RegisterFormState extends State<RegisterForm> {
             content: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text('Registration Failure'),
+                Text('Registro Fallido'),
                 Icon(Icons.error)
               ],
             ),
@@ -89,6 +89,7 @@ class _RegisterFormState extends State<RegisterForm> {
             child: ListView(
               children: <Widget>[
                 Card(
+                  color: Color(0xFFFFFF),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
@@ -111,7 +112,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   autocorrect: false,
                   autovalidate: true,
                   validator: (_) {
-                    return !state.isEmailValid ? 'Invalid Email' : null;
+                    return !state.isEmailValid ? 'Invalido Email' : null;
                   },
                 ),
                 // Un textForm para password
@@ -123,7 +124,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   autocorrect: false,
                   autovalidate: true,
                   validator: (_) {
-                    return !state.isPasswordValid ? 'Invalid Password' : null;
+                    return !state.isPasswordValid ? 'Invalido Password' : null;
                   },
                 ),
                 // Un button
